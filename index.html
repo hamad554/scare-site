@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<body style="margin:0;background:black;height:100vh;overflow:hidden;display:flex;justify-content:center;align-items:center;">
+
+<button id="startBtn"
+style="font-size:40px;padding:20px 60px;cursor:pointer;">
+اقبل
+</button>
+
+<script>
+const startBtn = document.getElementById("startBtn");
+
+startBtn.addEventListener("click", () => {
+
+if (document.documentElement.requestFullscreen) {
+document.documentElement.requestFullscreen().catch(()=>{});
+}
+
+document.body.innerHTML = `
+<video autoplay loop playsinline
+style="position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;">
+<source src="scareNEW.mp4" type="video/mp4">
+</video>
+`;
+
+const audio = new Audio("scream.mp3");
+audio.loop = true;
+audio.play().catch(()=>{});
+});
+</script>
+
+</body>
+</html>
